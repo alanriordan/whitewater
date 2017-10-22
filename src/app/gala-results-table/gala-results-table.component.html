@@ -1,0 +1,39 @@
+<button (click)="newGala()">Create Gala</button>
+<div style="margin: auto; max-width: 1000px; margin-top: 50px">
+	<data-table id="gala-grid" headerTitle="Gala" [items]="galas"
+		[itemCount]="galaCount" (reload)="reloadGalas($event)" [limit]="8"
+		[sortBy]="'date'" [sortAsc]="false" [selectColumn]="true"
+		[multiSelect]="false" [substituteRows]="false" [expandableRows]="true"
+		[translations]="translations" [indexColumnHeader]="'#'"
+		[selectOnRowClick]="true"> <ng-template
+		#dataTableExpand let-item="item">
+
+	<table
+		class="table table-sm table-responsive table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th *ngFor="let heading of getEvents()">{{heading}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let result of item.results" class="table-info">
+				<td>{{result.name}}</td>
+				<td *ngFor="let event of events;">{{getEventTime(event,
+					result.eventTimes)}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+	</ng-template> <data-table-column [property]="'title'" [header]="'Title'"
+		[sortable]="true"> </data-table-column> <data-table-column
+		[property]="'date'" [header]="'Gala Date'" [sortable]="true">
+	</data-table-column> </data-table>
+	<div style="margin-top: 10px">
+		<b>Selected:</b> <span *ngIf="galasTable.selectedRow == null"><i>No
+				item selected</i></span> <span
+			[textContent]="galasTable.selectedRow && galasTable.selectedRow.item.title"></span>
+	</div>
+</div>

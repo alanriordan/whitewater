@@ -1,0 +1,14 @@
+<div *ngIf="swimmer">
+	<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">{{swimmer.swimIrelandNum}}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{swimmer.name}}</h6>
+    <p class="card-text">{{swimmer.address}}</p>   
+    <p class="card-text">{{swimmer.dob}} - {{swimmer.dob | age}}</p>     
+    <p class="card-text"><event-times [swimmer]="swimmer"></event-times></p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+</div>
+

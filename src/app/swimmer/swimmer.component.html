@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="col-5">
+		<swimmer-list (swimmerSelected)="selectSwimmer($event)"></swimmer-list>
+	</div>
+	<div class="col-7">
+		<swimmer-detail [swimmer]="selectedSwimmer"></swimmer-detail>
+	</div>
+</div>
+

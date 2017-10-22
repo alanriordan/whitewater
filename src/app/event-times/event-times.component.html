@@ -1,0 +1,19 @@
+<div *ngIf="swimmer">
+	<table class="table table-inverse table-bordered table-sm">
+		<thead class="thead-default">
+			<tr>
+				<th>PB</th>
+				<th>Event</th>
+				<th>Time</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let eventTime of swimmer.eventTimes | orderby; let i = index">
+				<td>{{i+1}}</td>				
+				<td>{{eventTime.event}}</td>
+				<td>{{eventTime.time}}</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</div>
